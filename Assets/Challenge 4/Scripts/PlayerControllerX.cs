@@ -11,10 +11,12 @@ public class PlayerControllerX : MonoBehaviour
     public bool hasPowerup;
     public GameObject powerupIndicator;
     public int powerUpDuration = 5;
+    public ParticleSystem turboSmoke;
 
     private float normalStrength = 10; // how hard to hit enemy without powerup
     private float powerupStrength = 25; // how hard to hit enemy with powerup
     private float turboBoost = 10;
+
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerControllerX : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             playerRb.AddForce(focalPoint.transform.forward * turboBoost, ForceMode.Impulse);
+            turboSmoke.Play();
 
         }
     }

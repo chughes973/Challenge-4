@@ -12,10 +12,12 @@ public class SpawnManagerX : MonoBehaviour
     private float spawnZMax = 25; // set max spawn Z
 
     public int enemyCount;
+    public float enemySpeed = 1;
     public int waveCount = 1;
 
 
     public GameObject player; 
+
 
     // Update is called once per frame
     void Update()
@@ -24,8 +26,10 @@ public class SpawnManagerX : MonoBehaviour
 
         if (enemyCount == 0)
         {
+            enemySpeed++;
             SpawnEnemyWave(waveCount);
         }
+
 
     }
 
@@ -55,6 +59,7 @@ public class SpawnManagerX : MonoBehaviour
         }
 
         waveCount++;
+        enemyCount += 25;
         ResetPlayerPosition(); // put player back at start
 
     }
